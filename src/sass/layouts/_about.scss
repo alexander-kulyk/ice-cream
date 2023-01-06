@@ -1,0 +1,323 @@
+.section-about {
+  background-color: $about-advantagesBG;
+  padding-top: 60px;
+  padding-bottom: 40px;
+
+  @include tablet {
+    padding-bottom: 60px;
+  }
+
+  @include desktop {
+    background-position: 50% 85%;
+    background-image: url(../images/about/milk-bg-desk.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 521px;
+  }
+
+  @include desktop {
+    @include retina {
+      background-image: url(../images/about/milk-bg-desk-2x.png);
+    }
+  }
+}
+
+.title-secondary--about {
+  margin-bottom: 15px;
+
+  @include tablet {
+    margin-bottom: 16px;
+  }
+
+  @include desktop {
+    margin-bottom: 16px;
+  }
+}
+.title--about {
+  margin-bottom: 32px;
+
+  @include tablet {
+    margin-bottom: 40px;
+  }
+  @include desktop {
+    margin-bottom: 60px;
+  }
+}
+
+.article {
+  @include tablet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  @include desktop {
+    gap: 100px;
+  }
+}
+
+.article__image {
+  width: 100%;
+  height: 279px;
+  background-image: url(../images/about/cow-mob.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  margin-bottom: 40px;
+
+  @include retina {
+    background-image: url(../images/about/cow-mob-2x.png);
+  }
+
+  @include tablet {
+    width: 336px;
+    height: 335px;
+    background-image: url(../images/about/cow-tab.png);
+  }
+
+  @include tablet {
+    @include retina {
+      background-image: url(../images/about/cow-tab-2x.png);
+    }
+  }
+
+  @include desktop {
+    width: 501px;
+    height: 501px;
+    margin-bottom: 0;
+    margin-left: -100px;
+    background-image: url(../images/about/cow-desk.png);
+  }
+
+  @include desktop {
+    @include retina {
+      background-image: url(../images/about/cow-desk-2x.png);
+    }
+  }
+}
+.article__content {
+  display: block;
+  background-position: 50% 30%;
+  background-image: url(../images/about/milk-bg-mob.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @include retina {
+    background-image: url(../images/about/milk-bg-mob-2x.png);
+  }
+
+  @include tablet {
+    background-image: none;
+  }
+}
+
+.article__header {
+  font-family: $mainFont;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(19 / 12);
+  color: $secondary-textColor;
+
+  margin-bottom: 20px;
+
+  max-width: 220px;
+
+  @include tablet {
+    max-width: 334px;
+    margin-bottom: 30px;
+
+    font-size: 14px;
+    line-height: calc(25 / 14);
+  }
+
+  @include desktop {
+    max-width: 463px;
+    margin-bottom: 32px;
+
+    font-size: 16px;
+    line-height: calc(28 / 16);
+  }
+}
+.article__description {
+  font-family: $mainFont;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(19 / 12);
+
+  color: $description-textColor;
+  margin-bottom: 20px;
+
+  max-width: 220px;
+
+  @include tablet {
+    max-width: 334px;
+    margin-bottom: 40px;
+
+    font-size: 14px;
+    line-height: calc(25 / 14);
+  }
+
+  @include desktop {
+    max-width: 463px;
+    margin-bottom: 40px;
+
+    font-size: 14px;
+    line-height: calc(27 / 14);
+  }
+}
+
+br {
+  content: '';
+  display: block;
+  margin: 10px 0;
+
+  @include desktop {
+    margin: 20px 0;
+  }
+}
+
+.about__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 32px;
+
+  font-family: $mainFont;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+
+  color: $mainButton-textColor;
+
+  width: 176px;
+  height: 44px;
+  background: $main-textColor;
+  border-radius: 22px;
+  border: transparent;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    background: $mainButton-hoverColor;
+    cursor: pointer;
+  }
+
+  @include tablet {
+    font-size: 16px;
+    line-height: calc(21 / 16);
+  }
+}
+
+.button__icon {
+  fill: transparent;
+  stroke: currentColor;
+  margin-left: 14px;
+}
+
+// about-modal
+
+.about__modal {
+  position: fixed;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+
+  border: 1px solid tomato;
+  border-radius: 22px;
+  min-width: 30%;
+  height: 300px;
+  padding-top: 0;
+  background-color: #fff5f6;
+  box-shadow: 0px 0px 10px 5px rgba(191, 17, 17, 0.2);
+
+  overflow: auto;
+
+  transform: translate(-50%, -50%);
+  opacity: 1;
+
+  transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @include tablet {
+    width: 50%;
+  }
+
+  &.is-hidden {
+    opacity: 0;
+    transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &-container {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+  }
+
+  &-bottom {
+    padding: 50px 20px 5px;
+    overflow: auto;
+    color: #907e82;
+
+    p {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.about__modal .about-close__button {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  border: 0;
+  cursor: pointer;
+
+  padding-left: 0;
+  padding-right: 0;
+
+  width: 176px;
+  height: 44px;
+  background-color: $main-textColor;
+  color: $mainButton-textColor;
+  border-radius: 22px;
+  border: white;
+
+  font-family: $mainFont;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &--centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &:hover,
+  &:focus {
+    background: $mainButton-hoverColor;
+    cursor: pointer;
+  }
+
+  @include tablet {
+    font-size: 16px;
+    line-height: calc(21 / 16);
+  }
+}
+
+.button__icon-close {
+  fill: currentColor;
+  stroke: currentColor;
+  margin-left: 5px;
+}
